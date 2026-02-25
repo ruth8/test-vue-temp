@@ -23,11 +23,18 @@ pipeline {
                 -v "$WORKSPACE:/app" \
                 -w /app \
                 node:20-alpine \
-                sh -c 'npm install && npm run build'
+                npm install
+                '''
+
+                sh '''
+                docker run --rm \
+                -v "$WORKSPACE:/app" \
+                -w /app \
+                node:20-alpine \
+                npm run build
                 '''
             }
         }
-
         stage('Archive') {
             steps {
                 echo "归档构建产物"
