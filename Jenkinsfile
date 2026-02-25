@@ -1,12 +1,7 @@
 pipeline {
     agent any
 
-    environment {
-        // 可配置服务器信息（建议用 Jenkins 凭据/参数替代明文）
-        // DEPLOY_HOST = "your.server.ip"
-        // DEPLOY_USER = "username"
-        // DEPLOY_PATH = "/path/to/deploy"
-    }
+    
 
     stages {
         stage('Checkout') {
