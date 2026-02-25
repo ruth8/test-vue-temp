@@ -10,6 +10,11 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/ruth8/test-vue-temp.git'
             }
         }
+        stage('Debug Workspace') {
+            steps {
+                sh 'ls -al'
+            }
+        }
 
         stage('Install & Build') {
             steps {
