@@ -20,7 +20,7 @@ pipeline {
             steps {
                 sh '''
                 docker run --rm \
-                -v "$WORKSPACE:/app" \
+                -v "$PWD:/app" \
                 -w /app \
                 node:20-alpine \
                 npm install
@@ -28,7 +28,7 @@ pipeline {
 
                 sh '''
                 docker run --rm \
-                -v "$WORKSPACE:/app" \
+                -v "$PWD:/app" \
                 -w /app \
                 node:20-alpine \
                 npm run build
