@@ -13,12 +13,12 @@ pipeline {
 
         stage('Install & Build') {
             steps {
-                echo "使用 Node 容器构建前端"
                 sh '''
                 docker run --rm \
-                    -v "${WORKSPACE}:/app" \
-                    -w /app \
-                    node:20-alpine sh -c "npm ci && npm run build"
+                -v "$WORKSPACE:/app" \
+                -w /app \
+                node:20-alpine \
+                sh -c 'npm ci && npm run build'
                 '''
             }
         }
